@@ -1,4 +1,5 @@
 <script>
+    import { createEventDispatcher } from "svelte";
     import { tweened } from "svelte/motion";
     import ProgressBar from "./ProgressBar.svelte";
     import { cubicOut } from "svelte/easing";
@@ -7,6 +8,7 @@
     const totalSeconds = 60;
     let elapsedSeconds = 0;
     let isActive = false;
+    let dispatch = createEventDispatcher();
 
     $: secondsLeft = totalSeconds - elapsedSeconds;
 
@@ -19,6 +21,7 @@
             isActive = false;
             elapsedSeconds = 0;
             progress.set((elapsedSeconds / totalSeconds) * 100);
+            dispatch("end");
         }
     }
 
