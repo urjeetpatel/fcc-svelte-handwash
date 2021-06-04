@@ -2,6 +2,19 @@
     import ProgressBar from "./ProgressBar.svelte";
 </script>
 
-<h2>Timer</h2>
+<div bp="grid">
+    <h2 bp="offset-4@md 6@md 12@sm">Seconds Left</h2>
+</div>
 <ProgressBar />
-<button>Start</button>
+<button class="start">Start</button>
+
+<style>
+    h2 {
+        margin: 0;
+    }
+    .start {
+        background-color: rgb(154, 73, 73);
+        width: 100%;
+        margin: 10px 0;
+    }
+</style>
